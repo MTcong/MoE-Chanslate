@@ -9,7 +9,7 @@ Upcycle **Qwen3.5-9B** (dense) into a sparse MoE (~8–9B total params, **A1B/A2
    - [x] vocab trim (`vocab/trim.py`, tested on a synthetic BPE only; run on the real Qwen3.5 tokenizer in Colab)
 4. [x] Eval script (`eval/translate_eval.py`: chrF++, BLEU, optional COMET); generation path untested until run with a real model
 5. [x] Distillation: `train/cache_teacher.py` (teacher top-k cache) + `train/distill.py` (student from cache); tested on tiny models only
-   - [ ] Colab notebook driving the full pipeline
+   - [x] Colab notebook `notebooks/pipeline.ipynb` (untested on real weights)
 6. [ ] SFT translation, optional preference stage
 7. [ ] Final eval, export, model card
 
