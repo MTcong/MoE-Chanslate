@@ -1,0 +1,15 @@
+torch
+transformers>=5.0
+tokenizers
+datasets
+accelerate
+safetensors
+pyyaml
+sacrebleu
+tqdm
+
+[comet]
+unbabel-comet
+
+[train]
+bitsandbytes

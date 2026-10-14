@@ -1,0 +1,18 @@
+Metadata-Version: 2.4
+Name: moe-chanslate
+Version: 0.1.0
+Summary: Upcycle Qwen3.5-9B into a sparse MoE (~8-9B total, A1B-A2B) for zh->vi translation
+Requires-Python: >=3.10
+Requires-Dist: torch
+Requires-Dist: transformers>=5.0
+Requires-Dist: tokenizers
+Requires-Dist: datasets
+Requires-Dist: accelerate
+Requires-Dist: safetensors
+Requires-Dist: pyyaml
+Requires-Dist: sacrebleu
+Requires-Dist: tqdm
+Provides-Extra: comet
+Requires-Dist: unbabel-comet; extra == "comet"
+Provides-Extra: train
+Requires-Dist: bitsandbytes; extra == "train"
