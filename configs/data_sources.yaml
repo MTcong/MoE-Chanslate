@@ -1,0 +1,10 @@
+# Edit freely. Dataset ids/columns are NOT verified (no HF access from the dev sandbox);
+# run `python scripts/build_data.py --check` on a machine with network to validate.
+# kind: hf   -> datasets.load_dataset(path, name, split) ; zh_col / vi_col or translation dict keys
+# kind: jsonl-> local file with {"zh":..., "vi":...} per line
+parallel:
+  - {name: open_subtitles, kind: hf, path: Helsinki-NLP/open_subtitles, name_args: {lang1: zh_cn, lang2: vi}, split: train, translation_key: translation, zh_key: zh_cn, vi_key: vi, max_rows: 5000000}
+  - {name: local_extra,   kind: jsonl, path: data/raw/extra.jsonl}
+# Pivot-through-English sources (zh-en + en-vi) can be added later via MT-based synthetic data.
+eval:
+  - {name: flores200, kind: hf, path: Muennighoff/flores200, name_args: {name: "zho_Hans-vie_Latn"}, split: devtest}
