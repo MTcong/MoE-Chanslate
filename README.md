@@ -6,7 +6,7 @@ Upcycle **Qwen3.5-9B** (dense) into a sparse MoE (~8–9B total params, **A1B/A2
 1. [x] Project scaffold + plan (this commit)
 2. [x] Data cleaning + `scripts/build_data.py` (source ids in `configs/data_sources.yaml` still unverified)
 3. [x] Granular upcycling to HF `qwen3_5_moe` (`upcycle/convert.py`, equivalence test passes)
-   - [ ] vocab trim (248k -> ~64k)
+   - [x] vocab trim (`vocab/trim.py`, tested on a synthetic BPE only; run on the real Qwen3.5 tokenizer in Colab)
 4. [ ] Baseline eval of dense 9B on FLORES-200 / WMT (chrF++, COMET)
 5. [ ] Distillation training (teacher = dense 9B) on Colab A100
 6. [ ] SFT translation, optional preference stage
