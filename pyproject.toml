@@ -1,0 +1,12 @@
+[project]
+name = "moe-chanslate"
+version = "0.1.0"
+description = "Upcycle Qwen3.5-9B into a sparse MoE (~8-9B total, A1B-A2B) for zh->vi translation"
+requires-python = ">=3.10"
+dependencies = [
+  "torch", "transformers", "datasets", "accelerate", "peft", "safetensors",
+  "sentencepiece", "pyyaml", "sacrebleu", "unbabel-comet", "tqdm",
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]

@@ -1,0 +1,11 @@
+# Granular upcycling: split each dense FFN into `num_experts` slices (no copies),
+# route top_k of them. Active FFN fraction = top_k / num_experts.
+# Architecture fields are read from the base model's config at runtime.
+base_model: Qwen/Qwen3.5-9B
+variant: a1b            # a1b -> 8/64 (1/8 FFN active), a2b -> 16/64 (1/4 active)
+variants:
+  a1b: {num_experts: 64, top_k: 8}
+  a2b: {num_experts: 64, top_k: 16}
+shared_expert: false
+router_init: small_random   # std 0.02
+output_dir: checkpoints/upcycled

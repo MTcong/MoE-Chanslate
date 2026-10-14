@@ -1,0 +1,10 @@
+__pycache__/
+*.pyc
+.venv/
+data/*
+!data/.gitkeep
+checkpoints/
+runs/
+wandb/
+*.safetensors
+*.parquet

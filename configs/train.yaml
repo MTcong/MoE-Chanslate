@@ -1,0 +1,13 @@
+stages:
+  - name: distill          # student MoE <- dense Qwen3.5-9B teacher (KL on zh/vi text)
+    tokens: 2.0e9
+  - name: sft              # zh->vi instruction-formatted translation pairs
+    epochs: 2
+  - name: pref             # optional: DPO/GRPO with COMET reward
+    enabled: false
+router:
+  aux_loss_free_balance: true
+  z_loss: 1.0e-3
+hardware:
+  colab: {gpu: A100-40GB, precision: bf16}
+  local: {gpu: RTX4060Ti-16GB, use_for: [data, eval, tiny-debug]}
