@@ -169,6 +169,9 @@ def main():
     n = len(new_tj["model"]["vocab"]) + len(new_tj.get("added_tokens", []))
     new_size = (n + 127) // 128 * 128
     print(f"kept {n} tokens -> vocab_size {new_size}")
+    # new_id -> old_id, consumed by train/cache_teacher.py
+    (dst / "new2old.json").write_text(json.dumps(
+        [o for o, _ in sorted(old2new.items(), key=lambda kv: kv[1])]))
 
     (dst / "tokenizer.json").write_text(json.dumps(new_tj, ensure_ascii=False))
     for f in src.iterdir():

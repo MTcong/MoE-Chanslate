@@ -1,6 +1,6 @@
 stages:
   - name: distill          # student MoE <- dense Qwen3.5-9B teacher (KL on zh/vi text)
-    tokens: 2.0e9
+    tokens: 3.0e8      # teacher top-16 cache ~6 B per token on disk (~2 GB per 1e8 tokens x16 x6B ≈ 30 GB)
   - name: sft              # zh->vi instruction-formatted translation pairs
     epochs: 2
   - name: pref             # optional: DPO/GRPO with COMET reward
